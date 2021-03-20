@@ -1,0 +1,126 @@
+Class Student
+{
+	public int stdId;
+	public String stdName;
+	public String Course;
+	public double fees;
+	
+	public Student(int id,String name,String course;double fees)
+	{
+		stdId=id;
+		stdName=name;
+		Course=course;
+		this.fees=fees;
+	}
+}
+
+Class StudentList
+{
+	public Student std;
+	public Student firstStudent,successorStud,predecessorStud;	//start
+	Student StudentArr[50];	//C++
+	Student StudentArr=new Student[50];	//Java
+	//considering the list to be empty
+	StudentList()
+	{
+		std=null;
+	}
+	
+	public void addStudent(Student student)
+	{
+		//when studentList is empty
+		std.info=new Student(101,"BAC","IT",25000.00);
+		std.next=null;
+
+		//when new element is added in the begining of list
+		std.info=new Student(101,"BAC","IT",25000.00);
+		std.next=StudentArr[0];
+		firstStudent=std;
+
+		//when new element is added in the end of list
+			//when size is known
+		std.info=new Student(101,"BAC","IT",25000.00);
+		studentArr[49].next=std;
+		std.next=null;
+		
+			//when size is unknown
+		Student currStud=0;
+		while(currStud!=null)
+		{
+			currStud++;
+		}
+		std.info=new Student(101,"BAC","IT",25000.00);
+		currStud.next=std;
+		std.next=null;
+		
+		//when new element is added in the middle of list
+		
+		Student currStud=new Student(105,"XYZ","IT",25000.00);	// node to be inserted
+		while(currStud!=null)
+		{
+			if(currStud.info<successorStud.info)
+			{
+				currStud=predecessorStud.next;
+				successorStud=currStud.next;
+				break;
+			}
+				currStud++;
+			
+		}
+		//same code of inserting element at the end of the list
+		studentArr[49].next= currStud;
+		currStud.next=null;
+		
+
+	}
+
+	//public void searchStudent(Student student)
+	public void searchStudent(int studId)
+	{
+		Student studSearch=new Student(105,"XYZ","IT",25000.00);
+		Student currStud=studentArr[0];
+		while(currStud!=null)
+		{
+			if(currStud.info==studSearch.info)
+			{
+				cout<<"details found at "<<currStud
+				break;
+			}
+				currStud++;
+			
+		}
+		cout<<"details not found ";
+	}
+
+	//public void removeStudent(Student student)
+	public void removeStudent(int studId)
+	{
+		//when new element is to be removed from the begining of list
+		studentArr[0]=firstStudent;
+		firstStudent=currStud;
+		studentArr[1]=firstStudent;
+		studentArr[0]=null;
+
+		//when new element is to be removed from the end of list
+		studentArr[49]=lastStudent;
+		lastStudent=currStud;
+		studentArr[48]=lastStudent;
+		studentArr[49]=null;
+		
+	}
+
+	public void visitStudent()
+	{
+		//code to display details of each student
+		
+		int currStud=0;
+		while(currStud<50)
+		{
+			cout<<StudentArr[currStud].id<<endl<<StudentAr[currStud].name;
+			currStud++;
+		}
+	}
+
+
+	
+}

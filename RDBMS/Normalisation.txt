@@ -1,0 +1,40 @@
+Candidate Key
+	any column or group of columns which can be considered as primary key 
+	are called as candidate key
+
+Primary Key
+	column or group of columns which helps us to uniquely identify each row
+	it cannot have duplicate values
+	it cannot have null values 
+
+
+Alternate Key
+	columns from candidate keys which are not chosen as primary key
+	are considered as alternate key
+
+Composite Key
+	group of columns which can be considered as primary would be called as
+	composite key
+
+We can perform only 4 types of operations on database table
+	CRUD
+	Create(insert)
+	Read  
+	Update
+	Delete
+
+Normalisation
+	Refers to spliting complex data structure into simple table structures based on some 	conditions.it helps reducing redundancy in table.
+	Redundancy is duplicacy of data.
+	
+
+Functional Dependency
+	Attribute(column) A is functionally dependent on Attribute(Column) B if and only if
+	,there is exactly one value of A for each value of B
+
+	A->B->C
+	A->C
+
+
+	
+

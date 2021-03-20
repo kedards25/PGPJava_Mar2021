@@ -1,0 +1,13 @@
+Array
+Collection of elements with same data type stored in adjecant memory locations
+has a fixed size
+
+LinkedList
+collection of elements with same data type stored in random memory locations but interlinked
+It can grow or shrink in size dynamically
+
+Operations to be performed on linkedList
+	Visiting each node in the list==>Traversing
+	Adding new element in the list
+	Deleting an element from the list
+	Searching particular element in the list
