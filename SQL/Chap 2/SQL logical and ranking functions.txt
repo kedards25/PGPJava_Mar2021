@@ -1,0 +1,27 @@
+--Logical Functions
+--iif(as same as if)
+select iif(15>7,'Greater','Smaller')
+
+--choose(as same as switch..case)
+select CHOOSE(3,'Jan','Feb','Mar','Apr','May')
+
+--Ranking Functions
+
+--ROW_NUMBER() separate row number for every row ,irrespective of repetition of rate values
+select BusinessEntityID,Rate,ROW_NUMBER() over(order by rate desc) 'row number'
+from HumanResources.EmployeePayHistory
+
+--RANK() Repititive row number for rows ,depending on repetition of rate values
+--repetition of ranking skips the subsequent number in sequence
+select BusinessEntityID,Rate,rank() over(order by rate desc) 'RANK'
+from HumanResources.EmployeePayHistory
+
+--Dense RANK() Repititive row number for every row ,depending on repetition of rate values
+--repetition of ranking does not skip the subsequent number in sequence
+select BusinessEntityID,Rate,dense_rank() over(order by rate desc) 'Dense RANK'
+from HumanResources.EmployeePayHistory
+
+--ntile divides all the rows in equal sections based on number you've provided
+--total no of rows in employee table:290 divided into 5 equal sections
+select BusinessEntityID,BirthDate,HireDate,ntile(5) over (order by birthdate) as ntile
+from HumanResources.Employee

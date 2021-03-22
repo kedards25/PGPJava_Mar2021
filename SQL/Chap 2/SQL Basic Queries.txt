@@ -1,0 +1,50 @@
+use AdventureWorks2012
+
+--Schema=>HumanResources
+--Table=>Employee
+
+--selecting all data
+select * 
+from HumanResources.Employee
+
+--select specific columns(Project)
+select loginid,jobtitle,businessEntityId
+from HumanResources.Employee
+
+select BusinessEntityID,LoginID,JobTitle
+from HumanResources.Employee
+
+select BusinessEntityID,LoginID,JobTitle,VacationHours,VacationHours+5
+from HumanResources.Employee
+
+select BusinessEntityID,LoginID,JobTitle,
+VacationHours,VacationHours+5 as 'increasedVacationHours'
+from HumanResources.Employee
+
+--performing arithmatic on columns
+select BusinessEntityID,LoginID,JobTitle,
+VacationHours,'updatedVacationHours'=VacationHours+5
+from HumanResources.Employee
+
+--Alias naming to columns
+select BusinessEntityID,LoginID,JobTitle,
+VacationHours,VacationHours+5 'updatedVacationHours'
+from HumanResources.Employee
+
+select BusinessEntityID,LoginID,JobTitle,
+VacationHours,VacationHours+5 'Updated Vacation Hours'
+from HumanResources.Employee
+
+select LoginID+' works as '+JobTitle
+from HumanResources.Employee
+
+--following query generates an error because
+--we cannot concatenate int values
+select LoginID+' has '+VacationHours
+from HumanResources.Employee
+
+
+
+
+
+

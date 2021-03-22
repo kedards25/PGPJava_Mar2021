@@ -1,0 +1,154 @@
+
+select * 
+from HumanResources.Employee
+
+select *
+from HumanResources.Department
+
+select * 
+from HumanResources.EmployeePayHistory
+
+select * 
+from HumanResources.EmployeeDepartmentHistory
+
+select BusinessEntityID,LoginID,JobTitle 
+from HumanResources.Employee
+
+--Restrict
+select *
+from HumanResources.Department
+where GroupName='Manufacturing'
+
+select BusinessEntityID,JobTitle,VacationHours
+from HumanResources.Employee
+where VacationHours<5
+
+
+select *
+from HumanResources.Department
+where GroupName='Manufacturing'
+and
+name='production'
+
+select BusinessEntityID,JobTitle,VacationHours
+from HumanResources.Employee
+where VacationHours=5
+or VacationHours=3
+
+select *
+from HumanResources.Department
+where NOT GroupName='Quality Assurance'
+
+--above query can be written as
+select *
+from HumanResources.Department
+where GroupName !='Quality Assurance'
+
+select BusinessEntityID,JobTitle,VacationHours
+from HumanResources.Employee
+where VacationHours between 3 and 5
+
+select BusinessEntityID,JobTitle,VacationHours
+from HumanResources.Employee
+where VacationHours not between 3 and 5
+
+select BusinessEntityID,JobTitle,VacationHours
+from HumanResources.Employee
+where JobTitle in('Recruiter','Stocker','buyer')
+
+select *
+from HumanResources.Department
+where Name like 'Pro%'
+
+select *
+from HumanResources.Department
+where Name like '%ing'
+
+select *
+from HumanResources.Department
+where Name like '%ti%'
+
+select *
+from HumanResources.Department
+where Name like 'Sale_'
+
+select *
+from HumanResources.Department
+where Name like '[A-J]%'
+
+--pattern we are providing is not case-sensitive
+select *
+from HumanResources.Department
+where Name like '[a-j]%'
+
+--negation
+select *
+from HumanResources.Department
+where Name like '[^A-J]%'
+
+select *
+from HumanResources.EmployeeDepartmentHistory
+where EndDate is null
+
+--isNull function allows to replace null value with user-defined default value
+--but it will work with old and new value of same data type
+select BusinessEntityID,ShiftID,DepartmentID,EndDate,
+revisedEndDate=isNull(EndDate,'2050-12-31')
+from HumanResources.EmployeeDepartmentHistory
+
+select *
+from Person.Address
+
+select AddressID,AddressLine1,newAddress=ISNULL(AddressLine2,'Park Road'),PostalCode
+from Person.Address
+
+select *
+from Person.Person
+
+--query to return first not null value from given set of values
+--if all the values are null then it will return null
+select BusinessEntityID,firstName,middleName,Suffix,coalescedColumn=coalesce(MiddleName, suffix)
+from Person.Person
+
+--records displayed in order based on particular column
+--ascending order by default
+select BusinessEntityID,JobTitle,LoginID,HireDate
+from HumanResources.Employee
+order by HireDate
+
+select BusinessEntityID,JobTitle,LoginID,HireDate
+from HumanResources.Employee
+order by HireDate desc
+
+--first five records displayed
+select top 5 *
+from HumanResources.Employee
+order by HireDate
+
+
+--first 10% rows of all rows displayed
+--Employee table consists of 290 records 
+--and hence 10% of 290=> first 29 records are fetched
+select top 10 percent *
+from HumanResources.Employee
+order by HireDate
+
+--fetching records after particular row
+select * 
+from HumanResources.Employee
+order by BusinessEntityID
+offset 60 rows
+
+--fetching fixed no of records after particular row
+select * 
+from HumanResources.Employee
+order by BusinessEntityID
+offset 60 rows
+fetch next 10 rows only
+
+--query to avoid duplication in particular row
+select MaritalStatus
+from HumanResources.Employee
+
+select distinct MaritalStatus
+from HumanResources.Employee

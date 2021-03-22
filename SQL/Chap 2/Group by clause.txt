@@ -1,0 +1,75 @@
+--aggregate functions
+select * 
+from HumanResources.EmployeePayHistory
+
+select avg(Rate) 'avg Rate'
+from HumanResources.EmployeePayHistory
+
+--counting all the values
+select count(rate) 'No of Rate rows'
+from HumanResources.EmployeePayHistory
+
+--counting distinct/unique values
+select count(distinct rate) 'No of unique Rate rows'
+from HumanResources.EmployeePayHistory
+
+select min(Rate) 'min of Rate rows'
+from HumanResources.EmployeePayHistory
+
+select max(Rate) 'max of Rate rows'
+from HumanResources.EmployeePayHistory
+
+select sum(Rate) 'sum of Rate rows'
+from HumanResources.EmployeePayHistory
+
+select distinct rate
+from HumanResources.EmployeePayHistory
+
+
+--while implementing group by clause
+--all the columns being fetched either have to be part of group by clause
+--or part of aggregate function
+select gender,count(BusinessEntityID)
+from HumanResources.Employee
+group by Gender
+--in above query gender column is used in group by clause whereas
+--employeeId is used in aggregate function of count
+
+select * 
+from HumanResources.Employee
+
+--we cannot place 'where' clause after 'group by' clause
+--we have to use 'having' clause after 'group by' but 'where' clause can be mentioned 
+--right after 'from' clause and make sure that column mentioned in having clause
+--has either been used in group by or in aggregate function
+
+--use of having clause in group by
+select gender,count(BusinessEntityID)
+from HumanResources.Employee
+group by Gender
+having gender='M'
+
+--use of where clause in group by
+select gender,count(BusinessEntityID)
+from HumanResources.Employee
+where gender='M'
+group by Gender
+
+--column mentioned in where clause need not to be mentioned anywhere earlier
+--use of where clause in group by
+select gender,count(BusinessEntityID)
+from HumanResources.Employee
+where BirthDate>'1972-05-15 00:00:00.000'
+group by Gender
+
+--following query gives error
+select gender,count(BusinessEntityID)'cnt'
+from HumanResources.Employee
+group by Gender
+having BirthDate>'1972-05-15 00:00:00.000'
+
+--grouping set
+select gender,count(BusinessEntityID),HireDate
+from HumanResources.Employee
+group by Gender,hiredate
+

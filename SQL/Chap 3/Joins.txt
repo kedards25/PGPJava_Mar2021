@@ -1,0 +1,166 @@
+--Joins
+--Helps us to view data from two tables as a logical view
+--by joining columns and this view is not saved in database as a table for future use
+
+--Following are the types of joins
+--Inner join
+--Outer join
+	--Left outer join
+	--right outer join
+	--full outer join
+--Cross join
+--Equi Join
+--Self join
+
+--Inner Join
+	--shows data which is common in both the relations based on common column
+
+--Base Tables
+select *
+from HumanResources.Employee;
+
+select *
+from HumanResources.EmployeePayHistory
+
+select *
+from HumanResources.EmployeeDepartmentHistory
+
+--fetching data based on BusinessEntityID in both tables
+select HumanResources.Employee.BusinessEntityID,
+HumanResources.Employee.JobTitle,
+HumanResources.Employee.LoginID,
+HumanResources.EmployeePayHistory.rate
+from HumanResources.Employee
+inner join
+HumanResources.EmployeePayHistory
+on HumanResources.Employee.BusinessEntityID=
+		HumanResources.EmployeePayHistory.BusinessEntityID
+
+--using table aliases to make query compact
+select emp.BusinessEntityID,emp.JobTitle,emp.LoginID,eph.rate
+from HumanResources.Employee emp
+inner join
+HumanResources.EmployeePayHistory eph
+on emp.BusinessEntityID=eph.BusinessEntityID
+order by eph.rate
+
+--using where clause and order by
+select emp.BusinessEntityID,emp.JobTitle,emp.LoginID,eph.rate
+from HumanResources.Employee emp
+inner join
+HumanResources.EmployeePayHistory eph
+on emp.BusinessEntityID=eph.BusinessEntityID
+where eph.Rate>25
+order by eph.rate
+
+--inner join with multiple tables
+select emp.BusinessEntityID,emp.JobTitle,emp.LoginID,eph.rate,edh.departmentId
+from HumanResources.Employee emp
+inner join
+HumanResources.EmployeePayHistory eph
+on emp.BusinessEntityID=eph.BusinessEntityID
+inner join
+HumanResources.EmployeeDepartmentHistory edh
+on emp.ModifiedDate=edh.ModifiedDate;
+--Outer Joins
+--Fetches all rows from one table and matching rows from other table
+--Left Outer Join
+
+select * 
+from sales.SpecialOfferProduct
+
+select *
+from sales.SalesOrderDetail
+
+--table which is mentioned first in join clause is considered as
+--left table
+select distinct(p.productId),p1.specialOfferId,p1.SalesOrderId,
+p1.orderQty,p1.unitPrice
+from Sales.SpecialOfferProduct p
+Left Outer Join
+Sales.SalesOrderDetail p1
+on p.ProductID=p1.ProductID
+order by ProductID
+
+
+--Right Outer Join
+
+select *
+from Sales.SalesTerritory
+
+select * 
+from Sales.SalesPerson
+
+
+select sp.BusinessEntityID,st.Name as territory
+from Sales.SalesTerritory st
+Right outer join
+sales.SalesPerson sp
+on st.TerritoryID=sp.TerritoryID
+
+--using old DB
+select st.name as Territory,sp.SalesPersonId
+from Sales.SalesTerritory st
+Right outer join
+sales.SalesPerson sp
+on st.TerritoryID=sp.TerritoryID
+
+--Full Outer Join
+--All the matching and non-matching values from both tables
+select st.name as territory,sp.SalesQuota
+from sales.SalesTerritory st
+full outer join Sales.SalesPerson sp
+on st.TerritoryID=sp.TerritoryID
+
+
+--Cross Join
+--Cartesian Product
+--each row from first table matches with all the rows from second table
+select *
+from std
+
+select *
+from course
+
+select s.name,c.courseName,s.fees+c.tax as 'total fees'
+from std s 
+cross join course c
+
+--Equi Join
+--As Same as inner join but the difference is
+--in inner join we can use criteria as non-equality operator such as '<','>'
+--whereas in equi join we have to use equality operator only
+select * 
+from HumanResources.Employee
+
+select * 
+from HumanResources.EmployeeDepartmentHistory
+
+select * 
+from HumanResources.Department
+
+select *
+from HumanResources.EmployeeDepartmentHistory d
+join HumanResources.Employee e on
+d.BusinessEntityID=e.BusinessEntityID
+join HumanResources.Department p
+on p.DepartmentID=d.DepartmentID
+
+--self join
+--Table joins with itself
+--hence given two alias names
+
+select *
+from HumanResources.Employee
+
+select distinct LoginId
+from HumanResources.Employee
+
+--Using this query we will select the employees which belong to particular Job TItle
+select emp.BusinessEntityID,
+emp.JobTitle as designation ,
+emp.LoginID,
+mgr.JobTitle as manager_designation
+from HumanResources.Employee emp,HumanResources.Employee mgr
+where emp.JobTitle=mgr.JobTitle
+

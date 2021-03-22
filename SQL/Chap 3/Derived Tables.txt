@@ -1,0 +1,55 @@
+/*union operator*/
+select HireDate 
+from HumanResources.Employee 
+union
+select RateChangeDate 
+from HumanResources.EmployeePayHistory
+
+/*intersect operator*/
+select HireDate 
+from HumanResources.Employee 
+intersect
+select RateChangeDate 
+from HumanResources.EmployeePayHistory
+
+/* except operator*/
+--row which is there in first table but not in second 
+select HireDate 
+from HumanResources.Employee 
+except
+select RateChangeDate 
+from HumanResources.EmployeePayHistory
+
+--Derived Tables
+select ProductID,sum(OrderQty) as totalOrdersPlaced
+from sales.SalesOrderDetail
+group by ProductID,SalesOrderID
+
+--select tbl1.productid,TotalQuantityOrdered,TotalOrdersPlaced
+--from
+--	(select ProductID,sum(OrderQty) as totalOrdersOrdered
+--	from sales.SalesOrderDetail
+--	group by ProductID)as Tbl1
+--	inner Join
+--	(
+--		select ProductID,sum(OrderQty) as TotalQuantityplaced
+--		from sales.SalesOrderDetail
+--		group by ProductID,SalesOrderID
+--	) as Tbl2
+--	on Tbl1.ProductID=Tbl2.ProductID
+
+--RateCTE is temporary result set with column as rate
+with RateCTE(Rate)
+AS
+(
+	Select top 10 rate as rate 
+	from HumanResources.EmployeePayHistory
+)
+select * from RateCTE
+--select rate,max_rate=
+--					(select max(Rate) 
+--					from RateCTE) 
+
+--following query will not execute as separate query
+--as RateCTE is temporary result set it cannot be referred later
+select * from RateCTE

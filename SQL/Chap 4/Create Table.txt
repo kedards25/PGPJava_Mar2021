@@ -1,0 +1,38 @@
+--DML
+--Data Manipulation Langauge->select/joins/subqueries
+
+--DDL
+--Data Definition Language->create commands
+
+--DCL
+--Data Control Language
+
+--create database db_name
+create database TestDB
+
+use TestDB
+
+create table MyTable
+(
+	--identity will help you to generate values with
+	--given seed(start) value and step value of 1
+	--identity(seed,step)
+	sampleId int identity(100,1),
+	sampleName varchar(50) not null,
+	sampleDate datetime
+)
+
+--if many rows of given column consists of null values
+--then it can be declared as SPARSE column
+--which will occupy lesser space than regular column
+
+--in order to store BLOB or CLOB 
+--BLOB=>Binary Large Object
+--CLOB=>Character Large Object
+--declare a column as varbinary(max)and of type filestream
+sp_help MyTable
+
+sp_helpdb testDb
+
+select * 
+from MyTable

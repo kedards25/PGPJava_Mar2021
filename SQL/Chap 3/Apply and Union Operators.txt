@@ -1,0 +1,36 @@
+/* cross Apply*/
+--cus is an alias name for customer table
+--caq is an alias name for second query
+
+select *
+from Sales.Customer
+
+select *
+from Sales.CustomerAddress
+
+SELECT CUS.TERRITORYID,cus.accountnumber,caq.addressID 
+from Sales.Customer cus 
+cross apply
+			(
+			select * 
+			from sales.CustomerAddress ca 
+			where cus.CustomerID=CA.CustomerID 
+			)CAQ
+
+/* outer Apply*/
+select distinct(p.productId),p1.specialofferID,p1.salesOrderId,p1.orderQty,p1.unitPrice 
+from  Sales.SpecialOfferProduct p 
+outer Apply 
+			(select * 
+			from Sales.SalesOrderDetail sd 
+			WHERE p.ProductID=sd.ProductID
+			)p1 
+			order by p.ProductID
+
+SELECT CUS.TERRITORYID,cus.accountnumber,caq.addressID 
+from Sales.Customer cus 
+outer apply
+			(select * 
+			from sales.CustomerAddress ca 
+			where cus.CustomerID=CA.CustomerID )CAQ 
+			order by AddressID desc

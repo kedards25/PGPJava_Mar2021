@@ -1,0 +1,126 @@
+--string functions
+select upper('morning')
+
+select UPPER(jobtitle) 
+from HumanResources.Employee
+
+select lower('NIIT')
+
+select len('priyamvadha')
+
+--removes unneccessary white space from left side
+select ltrim('            niit')
+
+--removes unneccessary white space from right side
+select rtrim('niit			')
+
+select concat('Hello',' ','World')
+
+select 'Hello'+space(10)+'World'
+
+select reverse('Hello')
+
+select left('dock',2)
+
+select right('look',2)
+
+--ASCII=>American Standard Code for Information Interchange
+--values range from 0-255
+--A-Z=>65-90
+--a-z=>97-122
+select ASCII('K')	--converts character into ASCII value
+
+select ASCII(' ')
+select char(32)		--converts ASCII value to character
+
+select CHARINDEX('e','Kedar')
+
+--it will go for first match
+select CHARINDEX('o','look')
+
+--return any value between 0-4
+--depending upon match
+select DIFFERENCE('Hello','hel')
+
+select REPLACE('lock','oc','oo')
+
+select REPLICATE('Hello ',3)
+
+--index of given pattern
+select PATINDEX('%office%','boxoffice')
+
+--****Math Functions***--
+
+select PI();
+
+select floor(4.7)
+
+select ceiling(4.2)
+
+select power(35,4)
+
+--generates random value
+select rand()
+
+select abs(-85)
+
+--exponential value
+select exp(7.5)
+
+select log(5.5)	--log to the base 2
+
+select log10(5.5) --log to the base 10
+
+--conversion of degrees to radians
+select radians(180)
+
+select ROUND(45.126,1)
+select ROUND(45.126,2)
+select ROUND(45.126,3)
+select ROUND(45.126,0)
+select ROUND(45.126,-1)
+select ROUND(345.126,-2) 
+
+select sign(-85)
+select SQUARE(35)
+select sqrt(1225)
+
+--***Date Functions***--
+select getDate()
+
+--GMT
+select GETUTCDATE()
+
+--will give the date from current date
+select day(GETDATE())
+
+--will give the date from given date
+select day('2020-11-25')
+
+select MONTH('2020-11-25')
+select month(GETDATE())
+
+select year('2020-11-25')
+select year(GETDATE())
+
+select DATEADD(DD,15,GETDATE())
+
+--its 'date-diff' not 'dated-iff'
+--select datediff(date_param,'old_date','new_date')
+select datediff(yyyy,'1997-04-25',GETDATE())
+select datediff(dd,'1997-04-25',GETDATE())
+select datediff(mm,'1997-04-25',GETDATE())
+
+select DATENAME(mm,GETDATE())
+select DATEPART(mm,GETDATE())
+
+select DATEFROMPARTS(2005,04,12)
+
+select DATETIMEFROMPARTS(2005,04,12,1,12,30,45)
+
+--we cannot concatenate datetime values
+select BusinessEntityID,HireDate,
+DATENAME(mm,HireDate)+','+convert(varchar,DATEPART(yyyy,HireDate)) 'Joining'
+from HumanResources.Employee
+
+select EOMONTH(GETDATE())

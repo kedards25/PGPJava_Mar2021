@@ -1,0 +1,62 @@
+--primary key
+Create table students
+(
+	--primary key has to be unique,not null
+	--no duplicate values
+	stdId int Constraint Con_StdId primary Key , 
+	Std_name varchar(30),
+	EmailId varchar(30)
+)
+--insert into <Table_Name>([column_names]) values(<set_of_values>)
+--insert into students(stdid,std_name,emailid) values(1,'raj','raj@gmail.com')
+
+insert into students values(1,'raj','raj@gmail.com')--Ok
+insert into students values(1,'raju','raju@gmail.com')---PRIMARY KEY constraint 'PK_ID'. Cannot insert duplicate key 
+insert into students values(2,'raju','raju@gmail.com')--Ok
+insert into students values(null,'rajesh','rajesh@gmail.com')--Cannot insert the value NULL into column 'Std_Id'
+insert into students values(3,'rajk','rajk@gmail.com')--Ok
+
+Select * from students
+
+--Unique key constraint
+--no duplicate values
+--only one null value is allowed
+Create table student1
+(
+	stdId int  , 
+	Std_name varchar(30) Constraint Con_stdname unique,
+	EmailId varchar(30)
+)
+
+insert into student1 values(1,'raj','raj@gmail.com')--Ok
+insert into student1 values(2,'raj','raju@gmail.com')---UNIQUE KEY constraint 'PK_ID'. Cannot insert duplicate key 
+insert into student1 values(2,'raju','raju@gmail.com')--Ok
+insert into student1 values(3,NULL,'rajesh@gmail.com')
+insert into student1 values(4,NULL,'rajesh@gmail.com')--Cannot insert the value NULL into column 'Std_Id'
+insert into student1 values(3,'rajk','rajk@gmail.com')--Ok
+
+select * 
+from student1
+
+--Foreign Key
+--primary key of one table can be referred as foreign key in other table
+Create table ExamDetails
+(
+	stdId int constraint Con_FK foreign key references students(stdId),
+	eCode varchar(30),
+	result varchar(7)
+)
+select * from examDetails
+insert into ExamDetails values(1,'E001','Pass'),(1,'E002','Fail'),(2,'E001','Pass')
+insert into ExamDetails values(4,'E001','Pass')
+
+--Foreign Key Constraint
+select *
+from students
+
+select *
+from ExamDetails
+
+delete 
+from students	--from is an optional keyword in delete query
+where stdId=1
