@@ -1,0 +1,23 @@
+--Synonyms
+
+create synonym st3
+for student3
+
+select * 
+from student3
+
+select *
+from st3
+
+--drop synonym st3 --this drops synonym not the table
+
+--sp_rename student3,std3
+sp_rename std3,student3
+
+--sp_renamedb TestDb,TestDb2
+
+select * 
+from student3	--error object not found
+
+select *
+from std3

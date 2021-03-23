@@ -1,0 +1,59 @@
+--- Step 2 : Create Partition Range Function
+CREATE PARTITION FUNCTION TestDB_PartitionRange1 (INT)
+AS RANGE LEFT FOR
+VALUES (3,6,10)
+--Partitions: 0 to <=3, >3 to <=6,>6 to <=10,>10
+
+--as Range right for
+--VALUES (3,6,10) 
+--partitions: 0 to <3,>=3 to <6,>= to <10,>=10
+
+--- Step 3 : Attach Partition Scheme to FileGroups
+CREATE PARTITION SCHEME TestDB_PartitionScheme1
+AS PARTITION TestDB_PartitionRange1			--function we created in step 2
+	--<=3	,>3 to <=6		,>6 to <=10	,>10
+TO ([PRIMARY], TestDB2_Part2,TestDB2_Part2,TestDB2_Part2);
+
+--- Step 4 : Create Table with Partition Key and Partition Scheme
+CREATE TABLE TestTable
+(
+ID INT NOT NULL,
+cDate DATETIME)
+ON TestDB_PartitionScheme1 (ID);
+
+--- Step 6 : Insert Data in Partitioned Table
+--Partition 1[Primary FileGroup]
+Insert into TestTable values (1,GETDATE())
+Insert into TestTable values (2,GETDATE())
+Insert into TestTable values (3,GETDATE())
+--Partition 2[Secondary FileGroup]
+Insert into TestTable values (4,GETDATE())
+Insert into TestTable values (5,GETDATE())
+Insert into TestTable values (6,GETDATE())
+--Partition 3[Secondary FileGroup]
+Insert into TestTable values (7,GETDATE())
+Insert into TestTable values (8,GETDATE())
+Insert into TestTable values (9,GETDATE())
+Insert into TestTable values (10,GETDATE())
+--Partition 4[Secondary FileGroup]
+Insert into TestTable values (11,GETDATE())
+Insert into TestTable values (12,GETDATE())
+Insert into TestTable values (13,GETDATE())
+Insert into TestTable values (14,GETDATE())
+
+select *
+from TestTable
+
+--We can query sys.partitions view and verify that TestTable contains four partitions 
+--and as per Step 6 one partition is inserted in filegroup 1 and three partitions are inserted in filegroup 3.
+--- Step 8 : Verify Rows Inserted in Partitions
+
+SELECT * FROM sys.partitions
+WHERE OBJECT_NAME(OBJECT_ID)='TestTable';
+GO
+
+
+--Step 9:fetch data from particular partition .i.e. Partition id 4
+select * 
+from TestTable 
+where $partition.TestDB_PartitionRange1(id)=3

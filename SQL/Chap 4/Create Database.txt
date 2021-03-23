@@ -1,0 +1,14 @@
+--- Step 1 : Create New Test Database with two different filegroups.
+CREATE DATABASE TestDB2
+ON PRIMARY
+(
+name='testdb2_part1',
+FILENAME ='D:\Professional\NIIT\Online Sessions\PGP Java Mar 2021\SQL\TestDB2_Part1.mdf',
+SIZE = 5,MAXSIZE=100,FILEGROWTH=1 
+),
+FILEGROUP TestDB2_Part2
+(
+NAME = 'TestDB2_Part2',
+FILENAME ='D:\Professional\NIIT\Online Sessions\PGP Java Mar 2021\TestDB2_Part2.ndf',
+SIZE = 2,MAXSIZE=100,FILEGROWTH=1 
+);

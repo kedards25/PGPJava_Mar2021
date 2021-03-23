@@ -1,0 +1,20 @@
+File types
+	.mdf(primary storage)
+		primary file group data
+		it has limited storage which we can define while creating database
+		each database will have only one mdf file
+
+	.ndf(secondary storage)
+		can be used when primary storage gets full or needs to be extended/expanded with more storage
+		in same or different drive
+		many secondary data files
+
+	.ldf(log file)
+		maintains log of everything we perform on database
+		size of lgo file is 25-40% of .mdf
+
+
+
+
+File Groups
+	

@@ -1,0 +1,28 @@
+select * from students
+
+sp_help students
+
+--alter table <table_name>
+alter table students
+alter column std_name varchar(50) 
+
+alter table students
+add addr varchar(100)
+
+--alter is used to modify table structure
+--update is used to modify column value
+
+--update <table_name>
+update students
+set Std_name='pqr'
+where stdId=4
+
+update students
+set addr='mumbai'
+
+--deletion of table
+--delete [from] <tablename> discards data but maintains structure
+--delete [from] <tablename>	=>supports where clause as well
+
+--drop table <table_name>	==>discard data and structure as well
+

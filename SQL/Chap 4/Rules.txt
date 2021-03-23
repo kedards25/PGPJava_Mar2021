@@ -1,0 +1,43 @@
+--Creating a Rule
+--Rules can be bound/unbound to column or data type
+--rules are re-usable
+--steps
+	--1.create rule
+	--2.create or use existing table
+	--3.bind rule to specific column or data type
+
+create rule rl_stdId
+as
+@stdId<=50
+
+Create table student4
+(
+	stdId int,
+	Std_name varchar(30),
+	EmailId varchar(30)
+)
+
+
+
+sp_bindrule 'rl_stdId','student4.stdId'
+
+insert into student4 values(31,'raj','raj@gmail.com')--Ok
+insert into student4 values(52,'raju','raju@gmail.com')--error because id cannot be greater than 50 as per the rule
+insert into student4 values(13,'rajk','rajk@gmail.com')
+
+select * from student4 
+
+--sp_unbindrule 'student4.stdId'	--while unbinding rule, we need not to provide
+									--rule name and just the column name
+
+--you can create userDefined data type 
+create type myAddr
+from varchar(100) not null
+
+Create table student5
+(
+	stdId int,
+	Std_name varchar(30),
+	EmailId varchar(30),
+	addr myAddr
+)

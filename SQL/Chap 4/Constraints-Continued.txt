@@ -1,0 +1,52 @@
+--Check Constraint
+--check Constraint helps you to implement user defined constraint
+Create table student2
+(
+	Std_Id int , 
+	Std_name varchar(30) ,
+	EmailId varchar(30) Constraint Chk_EmailiD check(EmailId like '%.com')
+	--EmailId varchar(30) Constraint Chk_EmailiD check(EmailId like '%.com') not null
+	--stdAge int Constraint Chk_Age check(stdAge between 5 and 20)
+	--QTR varchar(30) Constraint Chk_Qtr check(QTR in('Qtr1','Qtr2','Qtr3','Qtr4'))
+	--dob datetime Constraint Chk_dob check(dob<getdate())
+)
+
+insert into student2 values(1,'raj','raj@gmail.com')--OK
+insert into student2 values(2,'raju','rajC@gmai')--Error.Because .com is not in the Emaill Id
+insert into student2 values(3,'rajesh',null)--Null is allowed
+insert into student2 values(4,'rakesh',null)--Null is allowed
+
+select *
+from student2
+
+--disabling the constraint
+--alter table tableName
+alter table student2
+nocheck constraint Chk_EmailiD
+
+insert into student2 values(2,'raju','rajC@gmai')
+
+select *
+from student2
+
+
+--enabling the constraint
+--alter table tableName
+alter table student2
+check constraint Chk_EmailiD	
+
+Create table student3
+(
+	Std_Id int , 
+	Std_name varchar(30) ,
+	EmailId varchar(30) Constraint Dft_EmailiD  Default 'someone@gmail.com'
+)
+
+
+insert into student3(Std_Id,Std_name,EmailId) values(1,'raj','raj@gmail.com')--OK
+insert into student3(Std_Id,Std_name,EmailId) values(2,'raju',null)--OK
+insert into student3(Std_Id,Std_name) values(3,'rajesh')
+
+select *
+from student3
+

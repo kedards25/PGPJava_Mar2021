@@ -1,0 +1,85 @@
+Create table std1
+(
+	Std_id int identity(1,1),
+	Std_name varchar(30),
+	Std_Email varchar(50),
+	Contact bigint
+)
+
+--drop table std1
+
+insert into std1 values('KedarD','niit.kedar@gmail.com',8827457452),
+						('Rohit','chins2801@gmail.com',123456775),
+						('Aditya','adityashinde98@yahoo.com',4475568613)
+
+select std_id,std_name
+from std1
+
+create view stdView 
+as
+select std_id,std_name,std_email 
+from std1
+
+select *
+from stdView
+
+Create view Emp_Dept_Join
+as
+select	e.BusinessEntityID, e.MaritalStatus
+		,d.DepartmentID
+ from HumanResources.Employee e 
+ join HumanResources.EmployeeDepartmentHistory d
+on e.BusinessEntityID = d.DepartmentID
+
+select * 
+from Emp_Dept_Join
+
+Alter view Emp_Dept_Join
+as
+select	e.BusinessEntityID, e.MaritalStatus,e.Gender
+		,d.DepartmentID
+ from HumanResources.Employee e join HumanResources.Department d
+on e.BusinessEntityID = d.DepartmentID
+
+select * 
+from Emp_Dept_Join
+where BusinessEntityID=4
+
+--following query will generate an error 
+--as the columns to be updated are belonging to 
+--multiple constituent tables
+
+update Emp_Dept_Join
+set MaritalStatus='M',DepartmentID=5
+where BusinessEntityID=4
+
+--in order to update columns belonging to 
+--different tables from view
+--we need to execute two separate queries
+update Emp_Dept_Join
+set MaritalStatus='M'
+where BusinessEntityID=4
+
+--not working--need to check
+update Emp_Dept_Join
+set DepartmentID=5
+where BusinessEntityID=4
+
+sp_rename emp_dept_join,emp_dept_view
+
+select * 
+from Emp_Dept_view
+
+--drop view emp_dept_view
+
+create unique clustered index idx_uq_emp_dept_view
+on emp_dept_view(businessEntityId,DepartmentId)
+
+Alter view Emp_Dept_view
+with schemabinding
+as
+select	e.BusinessEntityID, e.MaritalStatus,e.Gender
+		,d.DepartmentID
+ from HumanResources.Employee e join HumanResources.Department d
+on e.BusinessEntityID = d.DepartmentID
+

@@ -1,0 +1,14 @@
+select * 
+from students
+
+--make sure that values we are providing values
+--in same column sequence
+insert into students values('raj',4,'raj@gmail.com')	--gives an error
+
+insert into students(Std_name,stdId,EmailId) values('raj',4,'raj@gmail.com')	--works fine
+
+insert into students values(4,'raj')--error:number of supplied values does not match table definition.
+
+insert into students(stdId,EmailId) values(4,'raj@gmail.com')
+
+insert into students values(5,'rajd','rajd@gmail.com'),(6,'rajg','rajg@gmail.com'),(7,'abc','abc@gmail.com')
