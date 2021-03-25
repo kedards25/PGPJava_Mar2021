@@ -1,0 +1,70 @@
+create procedure dbo.fn2 @pay float 
+as 
+begin
+	print(@pay*8*30)
+end
+
+--Scalar function 
+--function must return  value
+create function dbo.fn2(@pay float) returns float 
+as 
+begin
+	return(@pay*8*30)
+end
+
+declare @ans float
+set @ans=dbo.fn2(12.25)
+print @ans
+
+--inline function
+--function without the keyword begin end/function without body to return table directly
+create function dbo.fn3(@id int) returns table
+as 
+	return
+	(
+		select * 
+		from students 
+		where stdId=@id
+	)
+
+select * from dbo.fn3(1)
+
+--multistatement function
+--uses more than one statement in a return statement
+
+create function dbo.fn4(@rate int) returns table
+as
+return
+(
+select e.employeeId,e.Title,er.Rate
+from HumanResources.Employee e join HumanResources.EmployeePayHistory er
+on e.EmployeeID=er.EmployeeID 
+where er.rate>@rate
+)
+
+select * 
+from dbo.fn4(25) 
+order by Rate
+
+create function dbo.payrate (@rate money)
+returns @Table Table
+(
+empId int not null,
+RateChangeDate datetime not null,
+Rate money not null,
+payFrequency tinyint not null,
+modifiedDate datetime not null
+)
+as
+begin
+	insert @Table
+	select * 
+	from  HumanResources.EmployeePayHistory
+	where Rate>@rate
+	return
+end
+
+select *
+from payrate(45)
+order by rate
+

@@ -1,0 +1,107 @@
+select * 
+from HumanResources.EmployeePayHistory
+
+sp_help students
+--following statement is creating variable 
+--following statements are considered to be batch statements hence
+--none of them can be executed separately
+Declare @rate1 money		--declare @<variable_name> data_type
+select @rate1=rate from HumanResources.EmployeePayHistory
+where BusinessEntityID=25
+print @rate1		--querying as a single statement will give you error
+
+--if..else
+Declare @rate money
+select @rate=rate from HumanResources.EmployeePayHistory
+where BusinessEntityID=25
+if @rate<15
+	begin
+		print 'Review has to be done'
+	end
+else
+	begin
+		print'Review not required'
+		print  @rate
+	end
+
+
+if exists(select * from HumanResources.Department where name='Sales2')
+begin
+	select * from HumanResources.Department where name='Sales'
+end
+else
+	print 'Department Details not available'
+
+--Case
+select BusinessEntityID,maritalstatus,'Marital Status'=
+			case maritalstatus
+				when'M' then 'Married'
+				when 'S' then 'Single'
+				else
+				'Not specified'
+				End
+from HumanResources.Employee
+
+
+select avg(rate) 
+from HumanResources.EmployeePayHistory
+
+select max(rate) 
+from HumanResources.EmployeePayHistory
+
+
+--While
+While(select avg(rate)+1 from HumanResources.EmployeePayHistory)<20
+begin
+	update HumanResources.EmployeePayHistory
+	set Rate=Rate+1
+		if(select max(rate)+1 from HumanResources.EmployeePayHistory )>127
+			break
+		else
+			continue
+end
+select * from HumanResources.EmployeePayHistory order by rate desc
+
+--try Catch
+
+Begin try
+insert into [Person].[Contact]
+values(0,null,'Robert','J','Langdon',null,'cvds@fj.com',0,'1(11)500,555-0172',
+'9Ecfnvsnaga-acd0-4218-60DDF224c452','2a310EW=',null,NEWID(),getdate())
+
+insert into [HumanResources].[Employee]
+values('AS0124252158113ffsg',19979,'robertl',16,'Tool designer','1972-05-15','s','m','1996-07-31',
+0,16,20,1,newId(),getdate())
+
+end try 
+begin catch
+select 'There was an error '+ERROR_MESSAGE() as errorMsg,
+Error_Line() as ErrorLine,
+Error_Number() as ErrorNumber,
+Error_procedure() as ErrorProc,
+ERROR_SEVERITY() as ErrorSev,
+ERROR_STATE() as errorState
+end catch 
+
+exec sp2 'recruiter'
+
+--Raiserror
+begin try
+	declare @start datetime,
+			@end datetime,
+			@date_diff int
+	select @start='2000-01-01 01:00:00.000',
+		   @end='2000-01-01 05:00:00.000'
+	select @date_diff=DATEDIFF(hh,@start,@end)
+	if(@date_diff!=8)
+		raiserror('Error Raised',16,1)
+	else
+		print 'valid'
+end try
+begin catch
+	print 'Working hours should be 8'
+end catch
+
+
+select * from sysobjects
+where name='sp1'

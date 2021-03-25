@@ -1,0 +1,92 @@
+	select businessEntityId,JobTitle,Vacationhours 
+	from HumanResources.Employee
+
+--creating and storing stored procedure
+create procedure sp1
+as
+begin 
+	select businessEntityId,JobTitle,Vacationhours 
+	from HumanResources.Employee
+end
+
+--command to run stored procedure
+execute sp1
+
+exec sp1
+
+--to check all the stored procedures in the db
+select *
+from sysobjects
+where name='sp1'
+
+--to check the command of given stored procedure
+select *
+from syscomments
+where id='1319675749'
+
+alter procedure sp1
+as 
+begin
+select BusinessEntityID,JobTitle,Vacationhours,Gender from HumanResources.Employee
+end
+
+exec sp1
+
+--drop procedure sp1
+
+--parameterised procedure
+create procedure sp2 @title char(50)
+as 
+	begin
+		print 'List of employees'
+		select BusinessEntityID,JobTitle,loginId
+		from HumanResources.Employee
+		where JobTitle=@title
+end
+
+exec sp2 'recruiter'
+
+
+--output param
+create procedure sp3 @empId int,@dept char(50) output,@shiftid int output
+as 
+	begin
+		if exists(select * from HumanResources.Employee where BusinessEntityID=@empId)
+			begin
+				select @dept=d.name,@shiftId=h.shiftid
+				from HumanResources.Department d join 
+				HumanResources.EmployeeDepartmentHistory h
+				on d.DepartmentID=h.DepartmentID
+				where BusinessEntityID=@empId and h.EndDate is null
+				return 0	--success
+			end
+		else
+			return 1	--failure
+	end
+
+exec sp3 4,marketing,1
+
+--referring to a procedure from another procedure
+
+--alter procedure sp4 @empid int
+create procedure sp4 @empid int
+as
+begin
+	declare @returnedVal int,
+			@dept char(50),
+			@shiftid int
+	begin
+		exec @returnedVal= sp3 @empid,@dept output,@shiftid output
+		if(@returnedVal=0)
+		begin
+		print 'Records found'
+			print @empid
+			print @dept
+			print @shiftid
+		end
+		else
+			print 'Record not found'
+	end
+end
+
+exec sp4 2
