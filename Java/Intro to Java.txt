@@ -1,0 +1,29 @@
+JVM	java Virtual Machine
+	
+	JDK	Java Development Kit
+		basic libraries
+	JRE	Java Runtime Environment
+		support for running the code
+
+GC
+OOPS
+Platform independent
+Portable
+distributed	=>computers connected over network ,web apps
+secure
+robust
+multi-threading
+
+execution of java program
+java source file=>code file
+	.java extension
+	compiler converts the code into bytecode(binary language)
+	.class
+	loaded into JVM
+	checks for any malware in bytecode with help of bytecode verifier
+	class file is loaded in JIT compiler(Just-In-Time compiler)
+	execution engine then communicates with hardware
+	
+
+
+
