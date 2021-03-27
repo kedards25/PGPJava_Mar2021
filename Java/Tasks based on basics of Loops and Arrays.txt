@@ -1,0 +1,38 @@
+1.WAP to display prime numbers from 1 to 100
+
+2.WAP to accept number from user and display it in reverse order
+	e.g.7239->9327
+
+3.WAP to accept number from user and display the sum of its digits
+
+4.WAP to display Fibonacci Series till 100
+	fibonacci series :0	1	1	2	3	5	8...
+
+5.WAP to demonstrate pre-increment and post-increment operator
+
+6.WAP to display following pattern
+*
+1	2
+*	*	*	
+1	2	3	4
+
+7.WAP to display 
+p
+p	q
+p	q	r
+p	q	r	s
+
+8.WAP to accept a character from user and check if its vowel or consonent till 
+user enters '!'	
+
+9.WAP to accept a number from user and display the even numbers from given number
+	e.g.7239->2
+
+10.WAP to accept a number from user and display the sum of even digit places
+	e.g.7239->2+9=>11
+
+11.WAP to accept a string from the user and check if its a palindrome
+	note:do not use any built-in function
+	e.g.NITIN reverse of NITIN is NITIN only
+
+12.WAP to perform addition of two arrays

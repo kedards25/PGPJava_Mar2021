@@ -1,0 +1,92 @@
+types of if..else
+simple if
+//will not consist of else part
+if()
+{
+	//execute this if condition is true
+}
+
+if..else
+if()
+{
+	//execute this if condition is true
+}
+else
+{
+	//execute this if condition is false
+}
+
+
+nested if
+if()
+{
+	if()
+	{
+		//execute this if both conditions are true
+	}
+	else
+	{
+		//execute this if inner condition is false
+	}
+}
+else
+{
+	//execute this if outer condition is false
+}
+
+
+nested else..if(else..if ladder)
+if()
+{
+	//execute this if first condition is true
+}
+else
+{
+	if()
+	{
+		//execute this if first condition is false
+	}
+	else
+	{
+			if()
+			{
+				//execute this if second condition is false
+			}
+			else
+			{
+				//execute this if third /all condition(s) is false
+			}
+	}
+}
+
+switch..case
+
+choice=3;
+switch(choice)
+{
+	case 1:
+		//Code to execute in response to case 1
+		break;
+	case 2:
+		//Code to execute in response to case 2
+		break;
+	case 3:
+		//Code to execute in response to case 3
+		break;
+	case 4:
+		//Code to execute in response to case 4
+		break;
+	default:
+		//Code to execute if none of the case matches
+	
+}
+
+
+
+
+
+
+
+
+
+

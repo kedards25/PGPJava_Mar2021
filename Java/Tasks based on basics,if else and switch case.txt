@@ -1,0 +1,31 @@
+1. WAP to accept the 2 no.s from user and swap them
+	a.with third variable
+	b.without third variable
+
+2.Accept three no.s and display greatest of them
+
+3.Accept any character from user and check if it is consonent or vowel
+	a.by using if..else
+	b.by using switch..case
+
+4.create a calculator app by using switch case
+
+5.WAP to calculate simple interest
+
+6.WAP to accept a character from user and convert it into other case
+	e.g if input d then output D
+	    if input A then output a
+
+7.check the attendance of employees for reference given below and write
+  code to accept attendance for general shift and overtime 
+	pay scale:
+		General shift	1000
+		Overtime	500
+
+	Gen	OT
+	P	P
+	P	A
+	A	A
+
+
+	

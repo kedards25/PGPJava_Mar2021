@@ -1,0 +1,49 @@
+
+Loops help us to run specific block of codes for given number of times
+
+To execute loop we require an iterator
+Iterator helps us to repeat the code
+in order to achieve this iterator has to be provided with
+	1.initial value
+	2.condition
+	3.incr/decr
+
+while loop
+while the condition is true keep executing the block
+int i=0;	//initial value
+while(i<10)	//condition
+{
+	s.o.p("Hello");
+	i++;	//incr/decr
+}
+
+
+do..while
+it executes the code atleast once irrespective of the condition
+
+int i=50;
+do
+{
+	//code here
+	printf("Hello");
+	i++;
+}while(i<10);
+
+
+int a,b,c;
+do
+{
+	a=Integer.parseInt(args[0]);
+	b=Integer.parseInt(args[1]);
+	c=a+b;
+	printf(c);
+
+}while(c<100);
+
+for loop
+makes the code compact by arranging all the factors of loop in one line
+
+for(int i=0;i<10;i++)
+{
+	//code here
+}
