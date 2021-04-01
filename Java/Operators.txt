@@ -1,0 +1,100 @@
+Operators
+Operator operate on variables
+
+a+b	=>a,b->Operands(Variables)
+	=>+ operator
+
+assignment
+=	a=5	==>takes place from right to left direction
+
+arithmatic operators
++,-,/,*,%
+ mod/modulo/modulus
+5/2=2
+5%2=1
+
+arithmatic assignment operator
+perform arithmatic on the variable and store value back in same variable
+a=5;
+
++=	a+=5	a=a+5	a=10
+-=	a-=5	a=a-5	a=5
+*=	a*=5	a=a*5	a=25
+/=	a/=5	a=a/5	a=5
+%=	a%=5	a=a%5	a=0
+
+Comparison Operators
+>,<,>=,<=,==,!=
+
+a=8;
+
+a==5	=>false
+a!=5	=>true
+
+
+Logical Operators(helps to work with more than one condition)
+
+Logical AND(&&)
+C1	C2	Res
+T	T	T
+T	F	F
+F	T	F
+F	F	F
+
+Logical OR(||)
+C1	C2	Res
+T	T	T
+T	F	T
+F	T	T
+F	F	F
+
+Logical NOT(!)
+C1	Res
+T	F
+F	T
+
+
+a=8
+
+!(a==5)		==>	!(false)-->True
+
+!(a!=7)		==>	!(true)-->false
+
+
+Unary Operators
+operate on single variable
+(incr/decr by 1)
+++,--
+a=5 
+
+a++	 a=a+1		a=6
+a--	 a=a-1		a=5
+
+1.Post increment(First assignment and then increment)
+x=5 	y=8
+x=y++
+x=8	y=9
+
+
+2.pre increment
+x=5 	y=8
+x=++y
+x=9	y=9
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,53 @@
+OOPS
+Object Oriented Programming System
+it is based on classes and objects
+
+Object
+	any real world thing around us
+	has properties and functionality
+
+	OOPS		Real World Term		Technical Term
+	state		properties/attributes	variables
+	behavior	functionality		methods
+	identity	unique thing		constants
+
+	Two objects can have same state and behavior but will never have same identity
+
+	Objects can communicate with each other via messages,action performed by an object in response to the message given by other object is called as method
+
+	an object is instance of a class
+
+Classes
+	classes are collection of objects with same state and behavior or objects belonging to 	particular class exhibit state and behavior of mentioned class
+	
+	classes are groups of real world objects and classes are conceptual
+
+	Association due to which two or more objects communicate with 	each other is called as relation
+
+	Types of Relationships
+	Composition
+		one thing is made up of another
+		CPU-Motherboard
+		 ------>has---------->
+		a			b
+		 <------part of<------
+
+	Utilisation
+		one thing uses other
+		driver and car
+		
+		driver uses a car
+
+	Instantiation
+		Class and object
+		is-a
+		kind-of
+		
+
+	Generalisation
+		Many classes with similar behavior and properties
+		
+
+
+
+

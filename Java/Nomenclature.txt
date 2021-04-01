@@ -1,0 +1,23 @@
+UPPERCASE
+
+lowercase
+
+UpperCamelCase
+
+lowerCamelCase
+
+kebab-case
+
+snake_case
+
+package_name=>lowercase
+
+ClassName=>UpperCamelCase
+
+variables,methods and objects=>lowerCamelCase
+
+constants=>UPPERCASE
+
+lblalbummsg
+
+lblAlbumMsg

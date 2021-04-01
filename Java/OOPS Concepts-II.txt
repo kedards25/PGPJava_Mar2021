@@ -1,0 +1,45 @@
+OOPS
+
+Benefits of OOPS
+	Realistic Modelling
+	Re-usability
+	modularity
+	information hiding
+
+any language that follows OOPS must possess following characteristics
+
+Abstraction
+	Showing relavant data to user
+Encapsulation
+	Hiding unneccessary data from the user
+
+If abstraction is there then encapsulation must be there
+Abstraction and Encapsulation goes hand in hand
+
+Inheritance
+	Implementation of Generalisation
+	e.g.
+		Vehicle=> Generalised class
+		Car=>Specialised class derived from Vehicle class
+	helps in implementing re-usability
+
+	Types of inheritance
+		Single
+			One parent->One Child
+			
+		Multiple
+			More than one parent->One or more children classes
+
+		Multi-Level
+			Parent of one class would be child of another class
+			A-->B--->C
+
+
+Polymorphism
+	Greek Words
+	Poly=Many
+	Morphos=forms
+
+	One thing exhibiting in more forms
+	e.g.Mobile
+ 
