@@ -1,0 +1,7 @@
+void subtract(int a,int b)	//reference function
+void subtract(int a,float b)	//type of parameters is diff
+void subtract(int a,int b,int c)//number of parameters is diff
+void subtract(int b,int a)	//sequence of parameters is diff
+
+void subtract(int x,int y)	//no-polymorphism(variable names do not matter)
+int subtract(int a,int b)	//return type does not matter
