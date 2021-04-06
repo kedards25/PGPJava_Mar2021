@@ -9,12 +9,12 @@ public class StringMethodsDemo {
 		//System.out.println(val.charAt(3));
 		
 		
-		char[] str=new char[6];
-		val.getChars(7, 11, str, 0);
-		for(char v:str)
-			{
-				System.out.print(v+"\t");
-			}
+//		char[] str=new char[6];
+//		val.getChars(7, 11, str, 0);
+//		for(char v:str)
+//			{
+//				System.out.print(v+"\t");
+//			}
 		
 		
 //		String val2="Sample";
@@ -80,7 +80,15 @@ public class StringMethodsDemo {
 //		System.out.println(String.valueOf(num)+7);
 		
 		
-		
+		String val2=new String("Sample Text");
+		if(val.equals(val2))
+		{
+			System.out.println("Equal");
+		}
+		else
+		{
+			System.out.println("Not equal");
+		}
 				
 		
 
