@@ -1,0 +1,42 @@
+Compile Time	=>syntax errors
+Logical		=>Mistake in bulding Logic only
+Runtime		=>Error may or may not occur
+
+Exception class is parent class for all the classes used for exception handling
+Whenever an error occurs ,an exception is thrown by compiler
+
+
+We need to use try-catch block to handle exceptions in the code.
+
+Types of Exceptions 
+	Checked Exceptions
+			Compiler will indicate the expected error and will suggest the way to handle 			the error
+
+	Unchecked Exceptions
+			Compiler will not be aware of the expected error and will not suggest the 			way to handle the error	thereby causing the code to crash
+
+
+	ArithmaticException
+	ArrayIndexOutOfBoundsException
+	NullPointerException
+	IllegalAccessException
+	ClassNotFoundException
+	FileNotFoundException
+
+Try with Resources
+	
+	eliminates the need of lengthy finally block by closing the opened resources in try block 	itself
+
+	We can open multiple resources as well using try with resources
+
+	the resources need to be separated with ';'
+
+	the opened resources will be closed in opposite order in which they were opened
+	
+	try(//ConnectionString to Connect External Resource)
+	{
+		
+	}
+	catch()
+	{
+	}
