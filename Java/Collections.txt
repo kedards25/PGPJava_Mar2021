@@ -1,0 +1,71 @@
+Wrapper classes are used to wrap primitive data types as its object
+int=>Integer
+float=>Float
+
+
+emp=>Employee
+
+Demo<Employee> demo=new Demo();
+
+
+
+
+Integer intgr=new Integer(1000);
+
+int val=1000;
+
+intgr=val;	//Auto-Boxing
+
+val=(int)intgr;	//Auto-Unboxing
+
+Collection is an interface which stores object of same types
+Collection helps us to deal with objects of Generic class provided as a param
+
+class Employee
+{
+	int empId;
+	String empName;
+	String empAddr;
+	String dept;
+	long contactNo;
+
+}
+
+class Demo
+{
+
+
+main()
+{
+	Demo<Employee> demo=new Demo();
+}
+
+}
+
+//object of demo class is referring to objects of type Employee
+
+size of Collection elements can grow or shrink dynamically(dynamic array)
+
+Types of Collections
+List
+	arranges data using indexes
+	duplicate values are allowed
+	Can grow or shrink as per requirement
+
+Set
+	arranges data using values
+	duplicate values are not allowed
+	Can grow or shrink as per requirement
+Map
+	Key-value pair
+	arranges data based on key
+
+Stack
+	works on LIFO(Last In First Out)
+
+Queue
+	works on FIFO(First In First Out)
+
+Deque(Double Ended Queue=>can be treated as stack or queue)
+
+
