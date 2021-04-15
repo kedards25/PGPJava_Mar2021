@@ -1,0 +1,8 @@
+Main started
+Main creating object of class
+Thread being initialized in constructor
+invoking run method using object of Thread in constructor
+Is child thread active in constructor??true
+Main finished
+Thread invoked using constructor
+Is child thread active in main??true
