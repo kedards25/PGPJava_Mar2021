@@ -1,0 +1,19 @@
+p
+{
+	color:green;
+	font-style:italic;
+}
+
+/* '#' refers to id*/
+#p5
+{
+	font-size:24px;
+}
+
+
+
+/* '.' refers to class*/
+.para
+{
+	color:blue
+}

@@ -1,0 +1,36 @@
+SDLC [Software Development Life cycle]
+Waterfall Approach
+Requirement Gathering
+Analysis
+Design
+Development
+Testing
+Deployment
+Maintainance
+
+
+Test Driven Development
+
+Demo d=new Demo();
+int ans=d.add(5,7);
+//assertEquals(expected,actual);
+assertEquals(12,ans);
+
+
+class Demo
+{
+	int add()
+	{
+		return a+b;
+	}
+
+
+	void disp()
+	{
+		in sum=add();
+	}
+}
+
+to run some java projects we require to download jar files(also known as dependencies)
+which could be machine/computer bound,to avoid this computer bound dependencies we have
+a dependency management tool called as maven

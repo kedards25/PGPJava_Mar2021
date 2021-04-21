@@ -1,0 +1,21 @@
+Cascading Style Sheets
+	
+	selector
+	{
+		//declaration 
+		property:value;
+		property2:value;
+		property3:value;
+	}
+
+	p
+	{
+		color:red;
+	}
+
+
+order of cascading
+	inline
+	internal
+	external
+	browser default

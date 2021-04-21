@@ -1,0 +1,33 @@
+<html>
+	<head>
+		<style>	
+			div
+			{
+				height:200px;
+				width:250px;
+				background:#C70039;
+				/*-webkit-transition:property duration speed delay;*/
+				/*-webkit-transition:width 2s ease-in-out;*/
+				-webkit-transition-property:width;
+				-webkit-transition-duration:3s;
+				/*
+		slow start	-webkit-transition-timing-function:ease-in;	
+		slow end	-webkit-transition-timing-function:ease-out;
+		constant speed	-webkit-transition-timing-function:linear;
+				*/
+/*slow start and stop*/		-webkit-transition-timing-function:ease-in-out;
+				/*-webkit-transition-delay:3s;*/
+			}
+			div:hover
+			{
+				width:600px;
+			}
+		</style>
+	</head>
+	<body>
+		<div>
+			Sample	
+		</div>
+
+	</body>
+</html>

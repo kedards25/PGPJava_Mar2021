@@ -1,0 +1,23 @@
+HTML
+Hyper Text Markup Langugage
+	Hyper Text=>text transferred over the network(internet or intranet)
+	Markup Language=>Any Language which consists of Tags ('<>')
+
+intranet=>network within an organisation
+
+internet=>interconnected network of computers across the globe
+
+Web Design=>designing UI through which user will interact with the website
+
+web development=>Developing a fully functional website using logic
+
+Types of Tags
+Tags with body	<p></p>
+Tags without body </> <br/>
+Tags with body with attribute<p id="p1"></p>
+Tags without body without attribute<img src=""/>
+
+Ordered List(OL)
+Unordered List(UL)
+
+each element in the list will be represented using <li>(List Item)
