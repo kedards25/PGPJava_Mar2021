@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Table Demo</title>
+	<style>
+		table
+		{
+			font-family:sans-serif;
+			border:1px dotted red;
+			border-collapse:collapse;
+			width:450px;
+		}
+
+		table td
+		{
+			border:1px dotted blue;
+		}
+		table tr
+		{
+			background:#e3e3e3;
+		}
+
+		table tr.alt
+		{
+			color:#fff;
+			background:purple;
+		}
+
+		td
+		{
+			padding:50px 20px 50px 20px;
+		}
+
+		thead tr	
+		{
+			background:yellow;
+			color:green;
+		}
+
+		tfoot
+		{
+			text-align:center;
+		}
+	</style>
+</head>
+<body>
+	<table border="1">
+		<caption>
+			Report Card
+		</caption>
+		<thead>
+			<th>
+				Faculty
+			</th>
+			<th>
+				Names
+			</th>
+			<th>
+				Java
+			</th>
+			<th>
+				SQL
+			</th>
+			<th>
+				HTML5
+			</th>
+			<th>
+				Total
+			</th>
+		</thead>
+		<tfoot>
+			<tr>
+				<td colspan="5">
+					Grand Total
+				</td>
+				<td>
+					441
+				</td>
+			</tr>
+		</tfoot>
+		<tbody>
+			<tr>
+				<td rowspan="4">
+					Kedar
+				</td>
+				<td>
+					Darshan
+				</td>	
+				<td>
+					65
+				</td>
+				<td>
+					73
+				</td>
+				<td>
+					82
+				</td>
+				<td>
+					220
+				</td>
+			</tr>
+			<tr class="alt">
+				<td>
+					Sapna
+				</td>
+				<td>
+					78
+				</td>
+				<td>
+					62
+				</td>
+				<td>
+					81
+				</td>
+				<td>
+					221
+				</td>
+			</tr>
+			<tr>
+				<td>
+					Nidhi
+				</td>	
+				<td>
+					65
+				</td>
+				<td>
+					73
+				</td>
+				<td>
+					82
+				</td>
+				<td>
+					220
+				</td>
+			</tr>
+			<tr class="alt">
+				<td>
+					Ajeet
+				</td>
+				<td>
+					78
+				</td>
+				<td>
+					62
+				</td>
+				<td>
+					81
+				</td>
+				<td>
+					221
+				</td>
+			</tr>
+		</tbody>
+
+	</table>
+</body>
+</html>

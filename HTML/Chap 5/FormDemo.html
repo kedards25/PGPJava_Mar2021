@@ -1,0 +1,182 @@
+<html>
+	<head>
+		<title>
+			Form Demo
+		</title>
+		<!--<script type="text/javascript">
+			function greet(form)
+			{
+				var user=orderForm.userNm.value;
+				alert("Welcome "+user);
+			}
+		</script>-->
+	</head>
+	<body>
+		<div style="background:#e3e3e3;font-family:sans-serif;width:30%">
+		<!-- default method is GET-->
+		<!--<form action="order.html" method="get" autocomplete="off" novalidate>-->
+		<form action="order.html" method="post" name="orderForm" autocomplete="off">
+			<table>
+				<caption><b>Form Demo</b></caption>
+				<tr>
+					<td>
+						<label for="userName">Name:</label>
+					</td>
+					<td>
+						<input type="text" id="userName" name="userNm" placeholder="Enter your name" required maxLength="10"/>
+					</td>
+				</tr>
+				<tr>
+					<td>						
+						<label for="userPwd">Password</label>
+					</td>
+					<td>
+						<input type="password" id="userPwd" name="pass" required placeholder="Enter your password"
+						autofocus pattern="[a-zA-Z]{6,10}" title="only alphabets min 6,max 10"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="DOB">Date of Birth</label>						
+					</td>
+					<td>
+						<input type="date" placeholder="Enter your birthdate" required id="DOB" name="dob"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="contact">Contact No:</label>
+					</td>
+					<td>
+						<input type="tel" size="20" pattern=[0-9]{8,10} placeholder="Enter your contact no." id="contact" name="phn"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="mailId">E-Mail</label>
+					</td>
+					<td>
+						<input type="email" required id="mailId" name="email" placeholder="Enter your mail id"/>						
+					</td>
+				</tr>	
+				<tr>
+					<td>
+						<label for="web">website:</label>
+					</td>
+					<td>
+						<input type="url" placeholder="Enter your website name:" id="web" name="web"/>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label>Food type</label>
+					</td>
+					<td>
+						<input type="radio" id="vegFood" name="foodchoice" value="veg"/>
+						<label for="vegFood">Veg</label>
+						<input type="radio" id="nonVegFood" name="foodchoice" value="non-veg"/>
+						<label for="nonVegFood">non Veg</label>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<label for="chk">Add-ons</label>
+					</td>
+					<td>
+						<input type="checkbox" id="chk" name="addOn1" id="coldDrinks"/>
+						<label for="coldDrinks">Cold Drinks</label>
+						<input type="checkbox" name="addOn2" id="salad"/>
+						<label for="salad">Salad</label>
+						<input type="checkbox" name="addOn3" id="dessert"/>
+						<label for="dessert">Dessert</label>
+					</td>
+				</tr>	
+								<tr>
+					<td>
+						<label for="Soups">Soups</label>
+					</td>
+					<td>
+						<select multiple id="Soups">
+							<option value="select" selected>Select soup you want</option>
+							<option value="tomato">Tomato Soup</option>
+							<option value="hotnsour">Hot and Sour</option>
+							<option value="veg">Mix Veg</option>
+							<option value="corn">Sweet Corn</option>
+							<option value="manchow">Manchow</option>
+						</select>
+					</td>
+				</tr>	
+				</tr>	
+								<tr>
+					<td>
+						<label for="food">Dishes:</label>
+					</td>
+					<td>
+						<select id="food">
+							<option>Select your food</option>
+							<optgroup label="Maharashtrian">
+								<option value="mThali">Marathi Thali</option>
+								<option value="thalipeeth">Thalipeeth</option>
+								<option value="misal">Misal</option>
+							</optgroup>
+							<optgroup label="Gujarati" disabled>
+								<option value="khaman">Khaman</option>
+								<option value="undhiyu">Undhiyu</option>
+								<option value="fafda">Fafda</option>
+							</optgroup>
+						</select>
+					</td>
+				</tr>	
+				<tr>
+					<td>
+						<label for="desserts">Ice-Cream</label>
+					</td>
+					<td>
+						<select id="desserts">
+							<option value="select">Select Ice-cream you want</option>
+							<option value="vanilla">Vanilla</option>
+							<option value="butterscotch">ButterScotch</option>
+							<option value="cornetto">Cornetto</option>
+							<option value="strawberry">StrawBerry</option>
+							<option value="mango">Mango</option>
+						</select>
+					</td>
+				</tr>	
+				<tr>
+					<td>
+						<label for="addr">Address:</label>
+					</td>
+					<td>
+						<textarea placeholder="Enter Delivery address" rows="5" col="20" id="addr" name="addr"></textarea>
+					</td>
+				</tr>	
+				<tr>
+					<td>
+						<label for="pay">Mode of Payment</label>
+					</td>
+					<td>
+						<input list="modes" id="pay"/>
+						<datalist id="modes">
+							<option value="COD">
+							<option value="CC/Debit">
+							<option value="Paytm">
+							<option value="GPay">
+							<option value="BhimUPI">
+						</datalist>
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<!--<input type="submit" value="Place Order" formmethod="post" formaction="order.html" formautocomplete="off"
+						formnovalidate/>-->
+						<button onclick="greet(this.form)">Place Order</button>
+					</td>
+					<td>
+						<input type="reset" value="cancel"/>
+					</td>
+				</tr>				
+			</table>
+		</form>
+		<div>
+	</body>
+</html>
