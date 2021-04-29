@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<script>
+			function checkUserAge()
+			{
+				var age=parseInt(prompt("Enter your age"));
+				//var age=15;
+				if(age>12)
+				{
+					alert("You can play this game");
+				}
+				else
+				{
+					alert("You cannot play this game");
+				}	
+			}
+		</script>
+	</head>
+	<body>
+		<!-- click event on paragraph tag would be handled by onclick handler defined within tag and function will execute-->
+		<p onclick="checkUserAge()">Click here to play the game</p>
+	</body>
+</html>

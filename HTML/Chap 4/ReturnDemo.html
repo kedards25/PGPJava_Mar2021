@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<script>
+			function squareVal(value)
+			{
+				return value*value;
+			}
+		</script>
+	</head>
+	<body>
+		<p onclick="showVal(26)">Show me value</p>
+		<script>
+			//in case if we write the script in body 
+			//we should write it before ending tag of body
+			function showVal(value)
+			{
+				var num=squareVal(value);
+				alert(num);
+			}
+		</script>
+
+	</body>
+</html>

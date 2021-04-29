@@ -1,0 +1,35 @@
+
+HTTP
+Hyper Text Transfer Protocol
+
+		 HttpRequest
+Client<--------------------------------->Server
+		 HttpResponse
+
+HTML					Java(Servlets/JSP),PHP,ASP etc
+
+					CGI(Common Gateway Interface)
+						it used to receive requests from clients and treat 						each request as separate process,though it is coming 						from same client,it would lead to late response time 						thereby poor performance of website
+
+					Servlets
+					to overcome the drawbacks of CGI,java developed a technology 						called as servlets,which was functioning as same as CGI but 
+					was treating each request as a single thread
+
+
+					JSP[Java Server Pages]
+					advance form of java web
+
+					ASP[Active Server Pages]
+					for Microsoft's .Net platform
+
+					PHP[HyperTest PreProcessor]
+					<?php
+	
+					?>
+
+
+
+Java Scriptlets running on server are called as Servlets
+					
+					
+

@@ -1,0 +1,64 @@
+Three parts of application
+Design 		Logic		DB
+
+PL		BL		DL
+
+Presentation	Bussiness	Data 
+Layer		Layer		Layer
+
+Single Tier Architecture
+	All the three layers reside on single computer
+	e.g.=>Photoshop,obs,ms office[any stand-alone application]
+
+
+Pro's
+	ease of interaction with any layer.
+	Application can work offline(no need of network)
+	easy to handle/manage
+	better speed
+
+Con's
+	security issues
+	workload
+	no backup system
+
+Two Tier Architecture
+	PL+BL			DL
+	client			Server
+	
+
+	PL+BL			DL
+	fat client		thin server
+	e.g.=>M indicator,Netflix
+
+	PL			BL+DL
+	Thin client		Fat server
+	e.g.=>online converters
+
+Pro's
+	Workload divided
+	better security
+	backup system
+
+Con's
+	Maintainance Cost increases
+	Updation has to be done on each device by visiting server
+
+Three tier architecture
+	PL		BL		DL
+
+Pro's
+	Each layer is loosely bound to other layer
+
+Con's
+	Maintainance Cost
+	Network Dependency
+	each request has to be processed on server
+
+
+N-Tier architecture
+	PL		BL		DL
+
+		AJAX		disc
+				env
+ 

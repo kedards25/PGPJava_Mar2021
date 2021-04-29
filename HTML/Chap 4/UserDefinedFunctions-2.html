@@ -1,0 +1,17 @@
+<html>
+	<head>
+	</head>
+	<body>
+		<p id="pr">Click here</p>
+		<script>
+			var prg=document.getElementById("pr");
+			prg.addEventListener("click",greetUser,true);
+			function greetUser()
+			{
+			//we are associating the click event with greetUser()
+			//event handler using eventListener
+				alert("Welcome to HTML5");
+			}
+		</script>
+	</body>
+</html>
